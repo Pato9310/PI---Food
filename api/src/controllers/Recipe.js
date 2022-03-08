@@ -21,9 +21,12 @@ const getRecipes = async (req, res) => {
                     return {
                         id: recipe.id,
                         name: recipe.name,
-                        score: recipe.score,
                         image: recipe.image,
-                        type: recipe.type ? 'No Diets' : recipe.type.map(diet => diet.name),
+                        summary: recipe.summary,
+                        score: recipe.score,
+                        healthyScore: recipe.healthyScore,
+                        steps: recipe.steps,
+                        type: recipe.Diets ? recipe.Diets.map(diet => diet.type).flat() : 'No Diets',
                     }
                 })
                 return res.status(200).send(list);
@@ -58,8 +61,8 @@ const getRecipeById = async (req, res) => {
 }
 
 const createRecipe = async (req, res) => {
+    const { name, summary, score, healthyScore, steps, type } = req.body;
     try {
-        const { name, summary, score, healthyScore, steps, type } = req.body;
         const newRecipe = await Recipe.create({
             id: uuidv4().toString().toUpperCase(),
             name,
@@ -69,14 +72,16 @@ const createRecipe = async (req, res) => {
             steps,
         });
         const typeRecipe = await Diet.findAll({
-            where: { type: type }    
+            where: { 
+                type: type
+             }    
         });
-        await newRecipe.addDiet(typeRecipe);
+        newRecipe.addDiet(typeRecipe);
 
-        return res.status(200).send({ message:'puto'});
+        return res.status(200).send({message: 'Recipe added successfully'});
         
     } catch (error) {
-        res.send(error);
+        console.log(error);
     }
 }
 
