@@ -1,27 +1,29 @@
 const { Recipe, Diet } = require('../db');
 const { getApiData } = require('./Data');
+const { Op } = require('sequelize');
+const { v4: uuidv4 } = require('uuid');
 
 const getRecipes = async (req, res) => {
     try {
-        const allRecipes = getApiData();
+        const allRecipes = await getApiData();
         const { name } = req.query;
         if (name) {
-            const recipes = Recipe.findAll({
+            const recipes = await Recipe.findAll({
                 include: Diet,
                 where: {
                     name: {
-                        [op.substring]: `${name}` 
+                        [Op.substring]: `${name}` 
                     }
                 }
             })
-            if (recipe.length) {
+            if (recipes.length) {
                 let list = recipes.map( recipe => {
                     return {
                         id: recipe.id,
                         name: recipe.name,
                         score: recipe.score,
                         image: recipe.image,
-                        type: recipe.type ? recipe.type.map(diet => diet.name) : 'No Diets',
+                        type: recipe.type ? 'No Diets' : recipe.type.map(diet => diet.name),
                     }
                 })
                 return res.status(200).send(list);
@@ -55,7 +57,31 @@ const getRecipeById = async (req, res) => {
     }
 }
 
+const createRecipe = async (req, res) => {
+    try {
+        const { name, summary, score, healthyScore, steps, type } = req.body;
+        const newRecipe = await Recipe.create({
+            id: uuidv4().toString().toUpperCase(),
+            name,
+            summary,
+            score,
+            healthyScore,
+            steps,
+        });
+        const typeRecipe = await Diet.findAll({
+            where: { type: type }    
+        });
+        await newRecipe.addDiet(typeRecipe);
+
+        return res.status(200).send({ message:'puto'});
+        
+    } catch (error) {
+        res.send(error);
+    }
+}
+
 module.exports = {
     getRecipes,
-    getRecipeById
+    getRecipeById,
+    createRecipe
 }
