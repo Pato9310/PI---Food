@@ -1,0 +1,8 @@
+export const GET_RECIPES = 'GET_RECIPES';
+export const GET_DIETS_TYPE = 'GET_DIETS_TYPE';
+export const SEARCH_RECIPES = 'SEARCH_RECIPES';
+export const CREATE_RECIPE = 'CREATE_RECIPE';
+export const GET_DETAIL = 'GET_DETAIL';
+export const DIET_TYPE_FILTER = 'DIET_TYPE_FILTER';
+export const ALPHABETICAL_SORT = 'ALPHABETICAL_SORT';
+export const SCORE_SORT = 'SCORE_SORT';
