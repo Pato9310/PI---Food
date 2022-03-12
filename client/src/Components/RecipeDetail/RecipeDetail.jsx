@@ -32,7 +32,7 @@ const RecipeDetail = () => {
 
                 <div className="ddsh">
                     <h2 className="texts">Diet Type: </h2> 
-                    { details.Diets ? details.Diets.map(e => <h2 className="dishesanddiets" key={e}>{e}</h2>)
+                    { details.type ? details.type.map(e => <h2 className="dishesanddiets" key={e}>{e}</h2>)
                      : <p>No Diets Found</p>
                     }
                 </div>

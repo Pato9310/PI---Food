@@ -87,6 +87,7 @@ const RecipeCreate = () => {
                             {errors.score && <p className="e"> {errors.score}</p>}
                         </div>
                         <div className="inputRecipes">
+                            <label>Healthy Score:</label>
                             <input
                                 className="i"
                                 type="range"
@@ -114,23 +115,25 @@ const RecipeCreate = () => {
                             <select name="type" className="i" onChange={(event) => handleSelect(event)}>
                                 <option className='op'>Types: </option>
                                 {
-                                    diets.map((v) => (
-                                        <option className='op' value={v.id}>{v.name}</option>))
+                                    diets.map((type) => (
+                                        <option className='op' value={type}>{type}</option>))
                                 }
                             </select>
                         </div>
 
                         <div className="textArea">
                             {
-                                form.id.map((type) => (
-                                    <div key={type.id} className='typeAndButton'>
+                                console.log(form)}
+                                {form.type.map((type) => 
+                                (
+                                    <div key={type} className='typeAndButton'>
                                         <input className='btnDelete' type='button' value='X' onClick={() => handleDelete(type)}/>
-                                        <p className='pOfCountry'>{type}</p>
+                                        <p className='pOfType'>{type}</p>
                                     </div>))
                             }
                         </div>
                         <div>
-                            <button className='btnActivity' type="submit">Create Recipe</button>
+                            <button className='btnRecipe' type="submit">Create Recipe</button>
                         </div>
                     </form>
                 </div>

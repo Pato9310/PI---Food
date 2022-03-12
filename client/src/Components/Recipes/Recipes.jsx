@@ -55,33 +55,36 @@ const Recipes = () => {
     useEffect(() => {
         dispatch(getRecipes());
         dispatch(getDietsType());
-    }, [filtered]);
+    }, [filtered]);    
 
     return (
         <div className="Container">
             <div className="filterContainer">
                 <button className='refresh' onClick={(event) => reloadButton(event)}>Reload</button>
-                <label className="filters">Sort:</label>
-                <select className='select' onChange={(event) => sortByName(event)}>
-                    <option disabled selected>Filter by Alphabetical Order</option>
-                    <option value="asc"> A-Z </option>
-                    <option value="desc"> Z-A </option>
-                </select>
-        
-                <select className='select' onChange={(event) => sortByScore(event)}>
-                    <option disabled selected>Filter by Score</option>
-                    <option value="max">Major Score</option>
-                    <option value="min">Minor Score</option>
-                </select>
-        
-                <label className="filters">Diet Type:</label>
-                <select className='select' onChange={(event) => handleFilterDietType(event)}>
-                    <option disabled selected>Types..</option>
-                    {
-                        diets.map((diet) => (<option value={diet.type}>{diet.type}</option>))
-                    }
-                </select>
-        
+                <div className="sortContainer">
+                    <label className="filters">Sort:</label>
+                    <select className='select' onChange={(event) => sortByName(event)}>
+                        <option disabled selected>Filter by Alphabetical Order</option>
+                        <option value="asc"> A-Z </option>
+                        <option value="desc"> Z-A </option>
+                    </select>
+                </div>
+                <div className="sortContainer">
+                    <select className='select' onChange={(event) => sortByScore(event)}>
+                        <option disabled selected>Filter by Score</option>
+                        <option value="max">Major Score</option>
+                        <option value="min">Minor Score</option>
+                    </select>
+                </div>
+                <div className="sortContainer">
+                    <label className="filters">Diet Type:</label>
+                    <select className='select' onChange={(event) => handleFilterDietType(event)}>
+                        <option disabled selected>Types..</option>
+                        {
+                            diets.map((diet) => (<option value={diet}>{diet}</option>))
+                        }
+                    </select>
+                </div>
             </div>
     
             <Paginated
@@ -99,7 +102,7 @@ const Recipes = () => {
                                     <Recipe
                                         name={recipe.name}
                                         image={recipe.image}
-                                        diets={recipe.Diets}
+                                        diets={recipe.type}
                                     />
                                 </Link>
                             </div>

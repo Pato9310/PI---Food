@@ -37,10 +37,10 @@ export const useForm = ( initialForm, validateForm ) => {
         }
     };
 
-    const handleDelete = (idDiet) => {
+    const handleDelete = (diet) => {
         setForm({
             ...form,
-            id: form.id.filter( id => id !== idDiet)
+            type: form.type.filter( type => type !== diet)
         });
     };
 
@@ -48,7 +48,7 @@ export const useForm = ( initialForm, validateForm ) => {
         const { value } = event.target;
         setForm({
             ...form,
-            id: [...form.id, value]
+            type: [...form.type, value]
         })
     }
 

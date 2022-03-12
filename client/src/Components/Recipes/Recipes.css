@@ -1,8 +1,22 @@
 .Container {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    border: 1px solid #0f0;
+}
+
+.filterContainer {
+    width: 80%;
+    flex-direction: column;
+    justify-content:space-between;
+    border: 1px solid #f00;
+}
+
+.sortContainer {
+    border: 1px solid #00f;
+    width:30%;
+
 }
 
 .refresh {

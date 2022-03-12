@@ -1,17 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from '../SearchBar/SearchBar';
 import './NavBar.css';
 
 const NavBar = () => {
     return (
-        <div>
-            <Link className="navLink" to='/home'>
-                <button>Home</button>
-            </Link>
-            <Link className="navLink" to='/create-recipe'>
-                <button>Create Recipe</button>
-            </Link>
-        </div>
+        <nav className="navbar">
+            <li className="nav_item">
+                <Link to='/home'>
+                    <button className="btn_flotante">Home</button>
+                </Link>
+            </li>
+            <SearchBar/>
+            <li className="nav_item">
+                <Link to='/create-recipe'>
+                    <button className="btn_flotante">Create Recipe</button>
+                </Link>
+            </li>
+        </nav>
     )
 }
 

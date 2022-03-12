@@ -1,4 +1,4 @@
-.activityCardContainer {
+.recipeCardContainer {
     display: flex;
     background-color: #12043a;
     height: 100vh;
@@ -7,14 +7,14 @@
     margin: 0 0 0 0;
   }
   
-  .activityCard {
+  .recipeCard {
     background-color: rgba(0, 0, 0, 0.89);
     border-radius: 3px;
     padding: 70px 100px;
     color: white;
   }
   
-  .titleCreateActivity {
+  .titleCreateRecipe {
     color: #fff;
     text-transform: uppercase;
     font-size: 23px;
@@ -23,12 +23,12 @@
     text-align: center;
   }
   
-  .inputActivities{
+  .inputRecipes{
       position:relative;
       margin-bottom:25px;
   }
   
-  .labelActivity{
+  .labelRecipe{
       position:absolute;
       top:0px;
       left:0px;
@@ -52,7 +52,7 @@
       border-bottom:1px solid #e74c3c;	
   }
   
-  .btnActivity{
+  .btnRecipe{
       color:#fff;
       background-color:#e74c3c;
       outline: none;
@@ -66,8 +66,8 @@
       position:relative;
   }
   
-  .i:focus ~ .labelActivity,
-  .i:valid ~ .labelActivity{
+  .i:focus ~ .labelRecipe,
+  .i:valid ~ .labelRecipe{
       top:-12px;
       font-size:12px;
       
@@ -91,7 +91,7 @@
   
   }
   
-  .countrieAndButton{
+  .typeAndButton{
     background-color: black;
     border: grey 3px solid;
     width: 3.2rem;
@@ -117,7 +117,7 @@
     font-size: 10px ;
   }
   
-  .pOfCountry{
+  .pOfType{
     margin: 5px;
   }
   

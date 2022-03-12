@@ -18,7 +18,7 @@ const SearchBar = () => {
     }
     return (
         <div className="formSearchBar">
-            <form onSubmit={ event => handleSubmit(event)}>
+            <form className="inputRecipe" onSubmit={ event => handleSubmit(event)}>
                 <input 
                     className="inputRecipe"
                     type="text"
@@ -28,7 +28,7 @@ const SearchBar = () => {
                     placeholder= "Search a recipe..."
                     onChange={event=>handleChange(event)}
                 />
-                <input className="inputButton" type="submit" value=""/>
+                <button className="inputButton" type="submit" value="">Search</button>
             </form>
         </div>
   );

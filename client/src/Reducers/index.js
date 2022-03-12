@@ -38,8 +38,9 @@ export default function rootReducer(state= initialState, action) {
             return { ...state}
 
         case DIET_TYPE_FILTER:
-            const filterByDietType = state.recipes.filter( recipe => {
-                return recipe.Diets.find( diet => diet.type === action.payload)
+            const filterByDietType = state.filtered.length ? state.filtered : state.recipes;
+            filterByDietType.filter( recipe => {
+                return recipe.type.find( diet => diet.toLowerCase() === action.payload.toLowerCase())
             })
             return {
                 ...state,
@@ -47,11 +48,12 @@ export default function rootReducer(state= initialState, action) {
             }
         
         case ALPHABETICAL_SORT:
-            let orderByName = action.payload === "asc" ? state.recipes.sort ((a, b) => {
+            const nameSorted = state.filtered.length ? state.filtered : state.recipes;
+            let orderByName = action.payload === "asc" ? nameSorted.sort ((a, b) => {
                 if (a.name < b.name) return -1;
                 if (a.name > b.name) return 1;
                 return 0;
-            }) : state.recipes.sort((a, b) => {
+            }) : nameSorted.sort((a, b) => {
                 if (a.name < b.name) return 1;
                 if (a.name > b.name) return -1;
                 return 0;
@@ -62,11 +64,12 @@ export default function rootReducer(state= initialState, action) {
             }
 
         case SCORE_SORT:
-            let orderByScore = action.payload === "min" ? state.recipes.sort ((a, b) => {
+            const scoreSorted = state.filtered.length ? state.filtered : state.recipes;
+            let orderByScore = action.payload === "min" ? scoreSorted.sort ((a, b) => {
                 if (a.score < b.score) return -1;
                 if (a.score > b.score) return 1;
                 return 0;
-            }) : state.recipes.sort((a, b) => {
+            }) : scoreSorted.sort((a, b) => {
                 if (a.score < b.score) return 1;
                 if (a.score > b.score) return -1;
                 return 0;
