@@ -3,7 +3,9 @@ import './Paginated.css';
 
 const Paginated = ({ recipesPerPage, recipes, paginated}) => {
     const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(recipes/recipesPerPage); i++) {
+    const pages = Math.ceil(recipes/recipesPerPage);
+    
+    for (let i = 1; i <= pages; i++) {
         pageNumbers.push(i);
     }
     return (

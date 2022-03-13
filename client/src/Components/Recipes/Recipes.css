@@ -7,24 +7,27 @@
 }
 
 .filterContainer {
-    width: 80%;
-    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
     justify-content:space-between;
     border: 1px solid #f00;
 }
 
 .sortContainer {
     border: 1px solid #00f;
+    display: flex;
     width:30%;
-
+    justify-content:center;
 }
 
 .refresh {
     color: rgb(231, 218, 218);
     background-color: #ce5249;
-    font-size: 17px;
+    font-size: 12px;
     text-align: center;
-    padding: 10px 25px;
+    padding: 10px 20px;
     margin: 5px;
     border-radius: 3px;
     box-shadow: 3px 3px 5px 1px rgb(112, 44, 44);
@@ -37,7 +40,6 @@
 }
 
 .filters {
-    display: flex;
     color: rgb(6, 6, 75);
     font-style: italic;
     font-weight: 500;    
@@ -47,11 +49,10 @@
 }
 
 .select {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 50%;
 }
 
 .card {

@@ -60,18 +60,15 @@ const Recipes = () => {
     return (
         <div className="Container">
             <div className="filterContainer">
-                <button className='refresh' onClick={(event) => reloadButton(event)}>Reload</button>
                 <div className="sortContainer">
-                    <label className="filters">Sort:</label>
+                    <label className="filters">Sort By:</label>
                     <select className='select' onChange={(event) => sortByName(event)}>
-                        <option disabled selected>Filter by Alphabetical Order</option>
+                        <option disabled selected>Alphabetical Order</option>
                         <option value="asc"> A-Z </option>
                         <option value="desc"> Z-A </option>
                     </select>
-                </div>
-                <div className="sortContainer">
                     <select className='select' onChange={(event) => sortByScore(event)}>
-                        <option disabled selected>Filter by Score</option>
+                        <option disabled selected>Score</option>
                         <option value="max">Major Score</option>
                         <option value="min">Minor Score</option>
                     </select>
@@ -84,6 +81,10 @@ const Recipes = () => {
                             diets.map((diet) => (<option value={diet}>{diet}</option>))
                         }
                     </select>
+                </div>
+                <div className="sortContainer">
+                    <label className="filters">Reset Filters:</label>
+                    <button className='refresh' onClick={(event) => reloadButton(event)}>Reset</button>
                 </div>
             </div>
     

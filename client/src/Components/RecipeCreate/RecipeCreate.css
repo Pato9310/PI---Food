@@ -1,69 +1,75 @@
 .recipeCardContainer {
     display: flex;
-    background-color: #12043a;
-    height: 100vh;
+    /* height: 100vh; */
     align-items: center;
     justify-content: center;
-    margin: 0 0 0 0;
+    margin-top: 20px;
+    background-color: #f18a03c7;
   }
   
   .recipeCard {
-    background-color: rgba(0, 0, 0, 0.89);
-    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.815);
+    margin-top: 5%;
+    height: 85%;
+    width: 70%;
+    border-radius: 6%;
     padding: 70px 100px;
-    color: white;
+    /* color: white; */
   }
-  
+
   .titleCreateRecipe {
-    color: #fff;
+    /* color: #fff; */
+    color: #000000;
     text-transform: uppercase;
     font-size: 23px;
-    margin: -50px 0 80px 0;
+    margin: -40px 0 20px 0;
     display: block;
     text-align: center;
   }
   
   .inputRecipes{
-      position:relative;
-      margin-bottom:25px;
+      margin-top: 10px;
   }
   
   .labelRecipe{
-      position:absolute;
-      top:0px;
-      left:0px;
       font-size:16px;
-      color:#fff;	
+      /* color:#fff;	 */
+      color: #000000;
       pointer-events: none;
       transition: all 0.5s ease-in-out;
   }
+
   .i{ 
     border:0;
     border-bottom:1px solid #555;  
-    background:transparent;
+    background-color:#f18a03cb;
     width:100%;
-    padding:8px 0 5px 0;
+    padding: 12px 0 5px 0;
     font-size:16px;
-    color:#fff;
+    /* color:#fff; */
+    color: #000000;
   }
+
   .i:focus{ 
       border:none;	
       outline:none;
       border-bottom:1px solid #e74c3c;	
   }
   
+  .btnContainer {
+    display: flex;
+    justify-content:center;
+  }
+
   .btnRecipe{
       color:#fff;
       background-color:#e74c3c;
       outline: none;
-      border: 0;
       color: #fff;
       padding:10px 20px;
       text-transform:uppercase;
-      margin-top:50px;
       border-radius:2px;
       cursor:pointer;
-      position:relative;
   }
   
   .i:focus ~ .labelRecipe,
@@ -78,16 +84,16 @@
   }
   
   .textArea{
-    box-shadow: inset 1px 2px 6px 5px #141e27;
+    box-shadow: inset 1px 2px 6px 5px #f18a03c7;
     border-radius: 5px;
     width: 100%;
-    margin: 2rem auto;
+    margin: 1.2rem auto;
     padding: 10px 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    height: 8rem;
+    height: 5rem;
   
   }
   
@@ -102,7 +108,8 @@
   }
   
   .btnDelete{
-    color: white;
+    /* color: white; */
+    color: #000000;
     background-color: red;
     width: 1rem;
     height: 1rem;
@@ -124,4 +131,12 @@
   .e{
       color: red;
       font-size: small;
+  }
+
+  .steps {
+    width: 100%; 
+    height: 10em;
+    resize: none;
+    background:linear-gradient(180deg, #f18a037c, #ff8e04);
+    border-bottom:1px solid #555;  
   }

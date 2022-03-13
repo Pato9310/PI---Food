@@ -50,7 +50,7 @@ const RecipeCreate = () => {
                     <form className="formRecipe" onSubmit={handleSubmit}>
                         <span className='titleCreateRecipe'> Create Recipe </span>
                         <div className="inputRecipes">
-                            <label className='labelRecipe'>Name: </label>
+                            <label className='labelRecipe' id='name'>Name: </label>
                             <input
                                 className="i"
                                 type="text"
@@ -61,7 +61,7 @@ const RecipeCreate = () => {
                             />
                             {errors.name && <p className="e">{errors.name}</p>}
                         </div>
-                        <div className="inputRecipes">
+                        <div className="inputRecipes" id='summary'>
                             <label>Summary: </label>
                             <input
                                 className="i"
@@ -73,8 +73,8 @@ const RecipeCreate = () => {
                             />
                             {errors.summary && <p className="e">{errors.summary}</p>}
                         </div>
-                        <div className="inputRecipes">
-                            <label>Score: </label>
+                        <div className="inputRecipes" id='score'>
+                            <label>Score :  {form.score} </label>
                             <input
                                 className="i"
                                 type="range"
@@ -86,8 +86,8 @@ const RecipeCreate = () => {
                             />
                             {errors.score && <p className="e"> {errors.score}</p>}
                         </div>
-                        <div className="inputRecipes">
-                            <label>Healthy Score:</label>
+                        <div className="inputRecipes" id='healthyScore'>
+                            <label>Healthy Score :  {form.healthyScore}</label>
                             <input
                                 className="i"
                                 type="range"
@@ -99,10 +99,11 @@ const RecipeCreate = () => {
                             />
                             {errors.healthyScore && <p className="e">{errors.healthyScore}</p>}
                         </div>
-                        <div className="inputRecipes">
+                        <div className="inputRecipes" id='steps'>
                             <label className="msgs">Steps:</label>
                             <textarea
-                                name="steps" 
+                                name="steps"
+                                className="steps"
                                 type="text"
                                 value={form.steps} 
                                 onChange={ (event) => handleChange(event)}
@@ -112,7 +113,7 @@ const RecipeCreate = () => {
                         {errors.id && <p className="e">{errors.id}</p>}
 
                         <div>
-                            <select name="type" className="i" onChange={(event) => handleSelect(event)}>
+                            <select name="type" className="i" id='type' onChange={(event) => handleSelect(event)}>
                                 <option className='op'>Types: </option>
                                 {
                                     diets.map((type) => (
@@ -132,7 +133,7 @@ const RecipeCreate = () => {
                                     </div>))
                             }
                         </div>
-                        <div>
+                        <div className='btnContainer'>
                             <button className='btnRecipe' type="submit">Create Recipe</button>
                         </div>
                     </form>

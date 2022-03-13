@@ -81,7 +81,7 @@ const createRecipe = async (req, res) => {
         return res.status(200).send({message: 'Recipe added successfully'});
         
     } catch (error) {
-        console.log(error);
+        throw error;
     }
 }
 
