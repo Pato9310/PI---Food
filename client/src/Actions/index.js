@@ -1,17 +1,84 @@
 import axios from "axios";
 import { ALPHABETICAL_SORT, CREATE_RECIPE, DIET_TYPE_FILTER, GET_DETAIL, GET_DIETS_TYPE, GET_RECIPES, SCORE_SORT, SEARCH_RECIPES } from "../Const"
 
+let data = [
+    {
+        id: '123',
+        name: 'prueba1',
+        summary: 'esto es una prueba porque la api no funca',
+        score: 65,
+        healthyScore: 76,
+        steps: [{numero: 1, step: 'asfalfjbalfnafla'}, {numero: 2, step: 'asfalfjbalfnasjdbkadbafla'}, {numero: 3, step: 'asfalfjbqqwrqrrqalfnafla'}],
+        type: ['gluten free', 'ovo lactato', 'vegetarian']
+    },
+    {
+        id: '1234',
+        name: 'prueba2',
+        summary: 'esto es una prueba porque la api no funca',
+        score: 65,
+        healthyScore: 76,
+        steps: [{numero: 1, step: 'asfalfjbalfnafla'}, {numero: 2, step: 'asfalfjbalfnasjdbkadbafla'}, {numero: 3, step: 'asfalfjbqqwrqrrqalfnafla'}],
+        type: ['gluten free', 'ovo lactato', 'vegetarian']
+    },
+    {
+        id: '12345',
+        name: 'prueba3',
+        summary: 'esto es una prueba porque la api no funca',
+        score: 65,
+        healthyScore: 76,
+        steps: [{numero: 1, step: 'asfalfjbalfnafla'}, {numero: 2, step: 'asfalfjbalfnasjdbkadbafla'}, {numero: 3, step: 'asfalfjbqqwrqrrqalfnafla'}],
+        type: ['gluten free', 'ovo lactato', 'vegetarian']
+    },
+    {
+        id: '12333',
+        name: 'prueba4',
+        summary: 'esto es una prueba porque la api no funca',
+        score: 65,
+        healthyScore: 76,
+        steps: [{numero: 1, step: 'asfalfjbalfnafla'}, {numero: 2, step: 'asfalfjbalfnasjdbkadbafla'}, {numero: 3, step: 'asfalfjbqqwrqrrqalfnafla'}],
+        type: ['gluten free', 'ovo lactato', 'vegetarian']
+    },
+    {
+        id: '123444',
+        name: 'prueba5',
+        summary: 'esto es una prueba porque la api no funca',
+        score: 65,
+        healthyScore: 76,
+        steps: [{numero: 1, step: 'asfalfjbalfnafla'}, {numero: 2, step: 'asfalfjbalfnasjdbkadbafla'}, {numero: 3, step: 'asfalfjbqqwrqrrqalfnafla'}],
+        type: ['gluten free', 'ovo lactato', 'vegetarian']
+    },
+    {
+        id: '1236666',
+        name: 'prueba6',
+        summary: 'esto es una prueba porque la api no funca',
+        score: 65,
+        healthyScore: 76,
+        steps: [{numero: 1, step: 'asfalfjbalfnafla'}, {numero: 2, step: 'asfalfjbalfnasjdbkadbafla'}, {numero: 3, step: 'asfalfjbqqwrqrrqalfnafla'}],
+        type: ['gluten free', 'ovo lactato', 'vegetarian']
+    },
+    {
+        id: '123123',
+        name: 'prueba7',
+        summary: 'esto es una prueba porque la api no funca',
+        score: 65,
+        healthyScore: 76,
+        steps: [{numero: 1, step: 'asfalfjbalfnafla'}, {numero: 2, step: 'asfalfjbalfnasjdbkadbafla'}, {numero: 3, step: 'asfalfjbqqwrqrrqalfnafla'}],
+        type: ['gluten free', 'ovo lactato', 'vegetarian']
+    }
+]
+
+
 export const getRecipes = () => {
     return async (dispatch) => {
         try {
-            const requestRecipes = await axios.get('http://localhost:3001/recipes')
+            // const requestRecipes = await axios.get('http://localhost:3001/recipes')
             return dispatch({
                 type: GET_RECIPES,
-                payload: requestRecipes.data
+                payload: data
             })
         } catch (error) {
             alert('The api recipes is dosent work');
-            throw error;
+            console.log('aca:',error);
         }
     }
 }

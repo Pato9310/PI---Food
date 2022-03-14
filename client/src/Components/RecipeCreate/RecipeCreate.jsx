@@ -9,7 +9,7 @@ const initialForm = {
     summary: '',
     score: '',
     healthyScore: '',
-    steps: [],
+    steps: '',
     type: [],
 }
 
@@ -59,7 +59,7 @@ const RecipeCreate = () => {
                                 name="name"
                                 onChange={handleChange}
                             />
-                            {errors.name && <p className="e">{errors.name}</p>}
+                            {errors.name && <p className="errors">{errors.name}</p>}
                         </div>
                         <div className="inputRecipes" id='summary'>
                             <label>Summary: </label>
@@ -71,7 +71,7 @@ const RecipeCreate = () => {
                                 placeholder="Summary..."
                                 onChange={handleChange}
                             />
-                            {errors.summary && <p className="e">{errors.summary}</p>}
+                            {errors.summary && <p className="errors">{errors.summary}</p>}
                         </div>
                         <div className="inputRecipes" id='score'>
                             <label>Score :  {form.score} </label>
@@ -84,7 +84,7 @@ const RecipeCreate = () => {
                                 value={form.score}
                                 onChange={(event) => handleChange(event)}
                             />
-                            {errors.score && <p className="e"> {errors.score}</p>}
+                            {errors.score && <p className="errors"> {errors.score}</p>}
                         </div>
                         <div className="inputRecipes" id='healthyScore'>
                             <label>Healthy Score :  {form.healthyScore}</label>
@@ -97,7 +97,7 @@ const RecipeCreate = () => {
                                 value={form.healthyScore}
                                 onChange={(event) => handleChange(event)}
                             />
-                            {errors.healthyScore && <p className="e">{errors.healthyScore}</p>}
+                            {errors.healthyScore && <p className="errors">{errors.healthyScore}</p>}
                         </div>
                         <div className="inputRecipes" id='steps'>
                             <label className="msgs">Steps:</label>
@@ -110,16 +110,16 @@ const RecipeCreate = () => {
                             />
                             {errors.steps && <p className="errors">{errors.steps}</p>}
                         </div>
-                        {errors.id && <p className="e">{errors.id}</p>}
 
                         <div>
                             <select name="type" className="i" id='type' onChange={(event) => handleSelect(event)}>
                                 <option className='op'>Types: </option>
                                 {
                                     diets.map((type) => (
-                                        <option className='op' value={type}>{type}</option>))
-                                }
+                                        <option className='op' value={type} key={type}>{type}</option>))
+                                    }
                             </select>
+                            {errors.type && <p className="errors">{errors.type}</p>}
                         </div>
 
                         <div className="textArea">

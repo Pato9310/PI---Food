@@ -51,10 +51,15 @@ const Recipes = () => {
         }
         return recipes.slice(firstRecipe, lastRecipe)
     }
+
+    useEffect(() => {
+          dispatch(getRecipes());
+          dispatch(getDietsType());
+    }, [])
     
     useEffect(() => {
         dispatch(getRecipes());
-        dispatch(getDietsType());
+        // dispatch(getDietsType());
     }, [filtered]);    
 
     return (
@@ -62,23 +67,23 @@ const Recipes = () => {
             <div className="filterContainer">
                 <div className="sortContainer">
                     <label className="filters">Sort By:</label>
-                    <select className='select' onChange={(event) => sortByName(event)}>
-                        <option disabled selected>Alphabetical Order</option>
+                    <select className='select' name='alphabetical' onChange={(event) => sortByName(event)}>
+                        <option defaultValue={"Alphabetical Order"}>Alphabetical Order</option>
                         <option value="asc"> A-Z </option>
                         <option value="desc"> Z-A </option>
                     </select>
-                    <select className='select' onChange={(event) => sortByScore(event)}>
-                        <option disabled selected>Score</option>
+                    <select className='select' name='numerical' onChange={(event) => sortByScore(event)}>
+                        <option defaultValue={"Score"}>Score</option>
                         <option value="max">Major Score</option>
                         <option value="min">Minor Score</option>
                     </select>
                 </div>
                 <div className="sortContainer">
                     <label className="filters">Diet Type:</label>
-                    <select className='select' onChange={(event) => handleFilterDietType(event)}>
-                        <option disabled selected>Types..</option>
+                    <select className='select' name='diets' onChange={(event) => handleFilterDietType(event)}>
+                        <option defaultValue={"Types"}>Types..</option>
                         {
-                            diets.map((diet) => (<option value={diet}>{diet}</option>))
+                            diets.map((diet) => (<option value={diet} key={diet}>{diet}</option>))
                         }
                     </select>
                 </div>
@@ -99,13 +104,12 @@ const Recipes = () => {
                     filteredRecipes().map((recipe) => {
                         return (
                             <div className="card" key={recipe.id}>
-                                <Link className="link" to={`/recipes/${recipe.id}`}>
-                                    <Recipe
-                                        name={recipe.name}
-                                        image={recipe.image}
-                                        diets={recipe.type}
-                                    />
-                                </Link>
+                                <Recipe
+                                    id={recipe.id}
+                                    name={recipe.name}
+                                    image={recipe.image}
+                                    diets={recipe.type}
+                                />
                             </div>
                         );
                     })

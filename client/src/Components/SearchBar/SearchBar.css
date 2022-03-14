@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content:center;
     width: 40%;
-    margin-top: 20px;
+    margin-top: 2px;
 }
 
 .inputRecipe {
@@ -18,11 +18,11 @@
     height: 100%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: #064ce2;
+    background-color: #26A69A;
     color: #fff;
     cursor: pointer
 }
 
 .inputButton:hover {
-    background-color: #0542c4;
+    background-color: #009688;
 }

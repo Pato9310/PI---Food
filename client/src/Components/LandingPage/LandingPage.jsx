@@ -7,10 +7,10 @@ import './LandingPage.css';
 const LandingPage = () => {
     const dispatch = useDispatch();
 
-    useEffect(() => {
-      dispatch(getRecipes());
-      dispatch(getDietsType());
-    }, [])
+    // useEffect(() => {
+    //   dispatch(getRecipes());
+    //   dispatch(getDietsType());
+    // }, [])
     
 
     return (

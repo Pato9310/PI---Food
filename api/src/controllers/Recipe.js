@@ -36,7 +36,8 @@ const getRecipes = async (req, res) => {
         return res.status(200).send(allRecipes);
 
     } catch (error) {
-        return res.status(400).send('Something went wrong with API')
+        // return res.status(400).send('Something went wrong with API')
+        console.log('aca2:',error)
     }
 }
 

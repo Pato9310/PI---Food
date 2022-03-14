@@ -27,13 +27,22 @@ export const useForm = ( initialForm, validateForm ) => {
         event.preventDefault();
         setErrors(validateForm(form));
 
-        if (Object.keys(errors).length === 0) {
+        if (Object.values(errors).length > 0) {
+            alert('Please complete the information required');
+        } else if (
+            form.name === '' && 
+            form.summary === '' && 
+            form.score === '' &&
+            form.healthyScore === '' &&
+            form.steps === '' &&
+            !form.type.length) {
+            alert("Please complete the form");
+            
+        }else {
             dispatch(createRecipe(form));
             alert('Recipe created');
             setForm(initialForm);
             navigate("/home");
-        } else {
-            return;
         }
     };
 
