@@ -54,11 +54,11 @@ const Recipes = () => {
 
     useEffect(() => {
           dispatch(getRecipes());
-          dispatch(getDietsType());
+        //   dispatch(getDietsType());
     }, [])
     
     useEffect(() => {
-        dispatch(getRecipes());
+        // dispatch(getRecipes());
         // dispatch(getDietsType());
     }, [filtered]);    
 

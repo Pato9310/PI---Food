@@ -1,27 +1,15 @@
-.backButton {
-    color: rgb(231, 218, 218);
-    background-color: #ce5249;
-    font-size: 17px;
-    text-align: center;
-    padding: 10px 25px;
-    margin: 5px;
-    border-radius: 3px;
-    box-shadow: 3px 3px 5px 1px rgb(112, 44, 44);
-    cursor: pointer;
-}
-
-.backButton:hover {
-    color:#ce5249;
-    background-color: rgb(231, 218, 218);
+.detailContainer {
+    background-color: #1ABC9C;
+    margin: 10px;
+    padding: 5px;
 }
 
 .details {
-    margin: 10px;
-    padding: 5px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border: 1px solid black
 }
 
 .texts {
@@ -36,9 +24,11 @@
 .divimg {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
+    max-width: max-content;
     padding-left: 0px;
     padding-right: 0px;
+    border: 1px solid red;
 }
 
 .detailImg {
@@ -46,15 +36,12 @@
     display: flex;   
     box-shadow: 3px 3px 5px 1px rgb(112, 44, 44);
     width: 400px;
-    height: 250px
+    height: 400px
 }
 
-.ddsh {
-    display: flex;
-    justify-content: center;    
-}
+/* -------------------------------------------------------- */
 
-.dishesanddiets {
+/* .dishesanddiets {
     display: flex;
     flex-direction: column;
     margin-left: 2px;
@@ -70,6 +57,90 @@
     box-shadow: 3px 3px 5px 1px rgb(112, 44, 44);
     background-color: rgb(231, 218, 218, 0.3);
     
+} */
+
+.dietcontainer {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    max-width: auto;
+    min-height: max-content;
+    margin-left: 10px;
+    padding: 0;
+    border: 1px solid yellow;
+  }
+  .dietcontainer .dishesanddiets {
+    float: left;
+    position: relative;
+    text-transform: uppercase;
+    background-color: #ffffff; /* el color de fondo que se nos ocurra */
+    /* la altura */
+    height: 24px;
+    line-height: 24px;
+    /* el ancho lo resolvemos con paddings horizontales */
+    padding:0 10px 0 12px;
+    /* la separación entre etiquetas */
+    margin-left:20px;
+    /* definiciones del texto */
+    color: #000000;
+    font-size:12px;
+    font-family: Arial;
+    text-decoration: none;
+    /* una curva suave a laderecha */
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px; 
+    border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px; 
+    border-top-right-radius: 4px;
+  }
+  /* esto creará el triángulo de la izquierda */
+  .dietcontainer .dishesanddiets:before {
+    border-color: transparent #ffffff transparent transparent;
+    border-style: solid;
+    /* el borde es igual a la mitad de la altura definida anteriormente */
+    /* de ese modo será un triángulo equilátero */
+    border-width: 12px 12px 12px 0;  
+    content: "";
+    float: left;
+    left:-12px; /* lo movemos tanto como el valor dado al borde */
+    height: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+  }
+  /* esto, creará el circulito que precede a los textos */
+  .dietcontainer .dishesanddiets:after {
+    background-color: #1ABC9C; /* el color */
+    content: "";
+    float: left;
+    left: 0;
+    position: absolute;
+    top: 10px; /* lo ubicamos centrado en al mitad de la altura */
+    /* el ancho y la altura son iguales para que sea un círculo */
+    height: 4px;
+    width: 4px; 
+    /* el radio de la curva es la mitad de su tamaño */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+  }
+  /* efectos hover */
+  .dietcontainer .dishesanddiets:hover{
+    background-color: #555;
+  }
+  .dietcontainer .dishesanddiets:hover:before {
+    border-color: transparent #555 transparent transparent;
+  }
+/* //////////////////////////////////////////////////////// */
+
+.dietcontainer .ddsh {
+    margin-top: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: auto;
+    min-height: max-content;
+    border: 1px solid green;
 }
 
 .scores {
@@ -95,6 +166,7 @@
     background-color: rgb(231, 218, 218, 0.3);
     color: rgb(6, 6, 75);
     font-weight: 500;
+    max-height: 10em;
 }
 
 .steps {
@@ -104,4 +176,21 @@
     background-color: rgb(231, 218, 218, 0.3);
     color: rgb(6, 6, 75);
     font-weight: 500;
+}
+
+.backButton {
+    color: rgb(231, 218, 218);
+    background-color: #ce5249;
+    font-size: 17px;
+    text-align: center;
+    padding: 10px 25px;
+    margin: 5px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px 1px rgb(112, 44, 44);
+    cursor: pointer;
+}
+
+.backButton:hover {
+    color:#ce5249;
+    background-color: rgb(231, 218, 218);
 }

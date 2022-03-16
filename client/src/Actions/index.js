@@ -125,10 +125,10 @@ export const createRecipe = (payload) => {
 export const getDetail = (id) => {
     return async (dispatch) => {
         try {
-            const detail = await axios.get(`http://localhost:3001/recipes/${id}`);
+            // const detail = await axios.get(`http://localhost:3001/recipes/${id}`);
             return dispatch({
                 type: GET_DETAIL,
-                payload: detail.data
+                payload: data[0]
             })
         } catch (error) {
             alert('Something went wrong with the detail request')

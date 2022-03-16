@@ -13,7 +13,7 @@ const Recipe = (recipes) => {
                     <h2 className="recipeName">{name}</h2>            
                     <hr/>
                 </div>
-                <div className="dietcointainer">
+                <div className="dietcontainer">
                     { diets?.map(e => <h5 className="diets" key={e}>{e}</h5>)}            
                 </div>
                 <hr/>
